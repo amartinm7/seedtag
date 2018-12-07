@@ -31,10 +31,6 @@ curl -X GET -i "http://localhost:8888" -H "Content-type: application/json" -H "A
 ## post radar
 curl -X POST -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json" -d '{"protocols":["avoid-mech"],"scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}'
 
-## create a new spring project from the scratch
-First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
-https://start.spring.io/
-
 ## actuator spring plugin for health check, status and stop service
 ```
 curl localhost:8888/actuator/health
@@ -81,3 +77,7 @@ click + button add the left and right arrows from the navigation list
 ### organize imports like eclipse
 preferences | editor | general | auto imports
 marks the checks with 'unambiguos' labels 
+
+## create a new spring project from the scratch
+First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
+https://start.spring.io/
