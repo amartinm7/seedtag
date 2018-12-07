@@ -42,9 +42,9 @@ https://start.spring.io/
 
 ## actuator spring plugin for health check, status and stop service
 ```
-curl localhost:8080/actuator/health
-curl localhost:8080/actuator/info
-curl localhost:8080/actuator/shutdown
+curl localhost:8888/actuator/health
+curl localhost:8888/actuator/info
+curl localhost:8888/actuator/shutdown
 ```
 
 # TIPS
