@@ -59,11 +59,6 @@ https://docs.spring.io/spring-boot/docs/2.0.5.RELEASE/reference/htmlsingle/#gett
 sdk install springboot
 ```
 
-## spring guides
-https://spring.io/guides/gs/gradle/
-https://spring.io/guides/gs/actuator-service/
-
-
 ## intellij tips
 
 ### avoid out folder
@@ -77,6 +72,10 @@ click + button add the left and right arrows from the navigation list
 ### organize imports like eclipse
 preferences | editor | general | auto imports
 marks the checks with 'unambiguos' labels 
+
+# spring guides
+https://spring.io/guides/gs/gradle/
+https://spring.io/guides/gs/actuator-service/
 
 ## create a new spring project from the scratch
 First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
