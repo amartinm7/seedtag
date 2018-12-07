@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface Protocol {
 
+    public Scan[] process (Scan[] scans);
+
     public List<Coordinates> execute (Scan[] scans);
 
     public static double getDistance (Coordinates coordinates) {
