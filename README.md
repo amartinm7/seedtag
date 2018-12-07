@@ -20,7 +20,7 @@ From the project root folder exec the commands to create a docker image and run 
 
 ```bash
 docker build -f docker/Dockerfile . -t greetings
-docker run -p 8080:8080 greetings
+docker run -p 8888:8888 greetings
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
