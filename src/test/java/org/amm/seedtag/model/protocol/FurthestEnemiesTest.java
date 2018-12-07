@@ -11,8 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 // furthest-enemies : Se deberá priorizar el punto más lejano en el que haya enemigos.
 public class FurthestEnemiesTest {
@@ -50,6 +49,17 @@ public class FurthestEnemiesTest {
         LOGGER.info(obtainedCoordinates.toString());
     }
 
+    @Test
+    public void realTest11() throws Exception {
+        final String provided = "{\"protocols\":[\"furthest-enemies\"],\"scans\":[{\"coordinates\":{\"x\":89,\"y\":13},\"enemies\":{\"type\":\"mech\",\"number\":1}},{\"coordinates\":{\"x\":11,\"y\":35},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":19,\"y\":49},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":38,\"y\":21},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":10,\"y\":39},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":13,\"y\":38},\"enemies\":{\"type\":\"soldier\",\"number\":15}},{\"coordinates\":{\"x\":13,\"y\":15},\"enemies\":{\"type\":\"soldier\",\"number\":60}},{\"coordinates\":{\"x\":30,\"y\":19},\"enemies\":{\"type\":\"soldier\",\"number\":40}},{\"coordinates\":{\"x\":30,\"y\":11},\"enemies\":{\"type\":\"soldier\",\"number\":20}},{\"coordinates\":{\"x\":15,\"y\":19},\"enemies\":{\"type\":\"soldier\",\"number\":80}},{\"coordinates\":{\"x\":22,\"y\":15},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":10,\"y\":19},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":94,\"y\":11},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":10,\"y\":19},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":90,\"y\":18},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":80,\"y\":51},\"enemies\":{\"type\":\"soldier\",\"number\":15}},{\"coordinates\":{\"x\":70,\"y\":91},\"enemies\":{\"type\":\"soldier\",\"number\":60}},{\"coordinates\":{\"x\":30,\"y\":11},\"enemies\":{\"type\":\"soldier\",\"number\":40}},{\"coordinates\":{\"x\":30,\"y\":95},\"enemies\":{\"type\":\"mech\",\"number\":20}},{\"coordinates\":{\"x\":1,\"y\":89},\"enemies\":{\"type\":\"soldier\",\"number\":80}},{\"coordinates\":{\"x\":3,\"y\":11},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":54,\"y\":19},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":22,\"y\":38},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":3,\"y\":10},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":43,\"y\":13},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":51,\"y\":13},\"enemies\":{\"type\":\"soldier\",\"number\":15}},{\"coordinates\":{\"x\":91,\"y\":30},\"enemies\":{\"type\":\"soldier\",\"number\":60}},{\"coordinates\":{\"x\":11,\"y\":30},\"enemies\":{\"type\":\"soldier\",\"number\":40}},{\"coordinates\":{\"x\":91,\"y\":15},\"enemies\":{\"type\":\"soldier\",\"number\":20}},{\"coordinates\":{\"x\":51,\"y\":22},\"enemies\":{\"type\":\"soldier\",\"number\":80}},{\"coordinates\":{\"x\":91,\"y\":10},\"enemies\":{\"type\":\"mech\",\"number\":10}},{\"coordinates\":{\"x\":11,\"y\":84},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":91,\"y\":65},\"enemies\":{\"type\":\"soldier\",\"number\":10}},{\"coordinates\":{\"x\":81,\"y\":53},\"enemies\":{\"type\":\"mech\",\"number\":30}},{\"coordinates\":{\"x\":15,\"y\":70},\"enemies\":{\"type\":\"soldier\",\"number\":30}},{\"coordinates\":{\"x\":19,\"y\":83},\"enemies\":{\"type\":\"soldier\",\"number\":15}},{\"coordinates\":{\"x\":11,\"y\":46},\"enemies\":{\"type\":\"soldier\",\"number\":60}},{\"coordinates\":{\"x\":59,\"y\":26},\"enemies\":{\"type\":\"soldier\",\"number\":40}},{\"coordinates\":{\"x\":98,\"y\":57},\"enemies\":{\"type\":\"soldier\",\"number\":20}},{\"coordinates\":{\"x\":11,\"y\":58},\"enemies\":{\"type\":\"mech\",\"number\":80}},{\"coordinates\":{\"x\":91,\"y\":39},\"enemies\":{\"type\":\"mech\",\"number\":10}},{\"coordinates\":{\"x\":83,\"y\":37},\"enemies\":{\"type\":\"mech\",\"number\":10}},{\"coordinates\":{\"x\":0,\"y\":11},\"enemies\":{\"type\":\"mech\",\"number\":1}}]}";
+        final Coordinates expected = new Coordinates(30,95);
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final RequestMessage request =  objectMapper.readValue(provided, RequestMessage.class);
+        List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(request.getScans());
+        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
+        assertEquals(expected, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
+    }
 
 
     @Test

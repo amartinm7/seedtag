@@ -4,8 +4,6 @@ import org.amm.seedtag.model.message.Coordinates;
 import org.amm.seedtag.model.message.Enemies;
 import org.amm.seedtag.model.message.Scan;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
