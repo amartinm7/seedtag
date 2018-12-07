@@ -32,17 +32,6 @@ public class RadarController {
     }
 
     @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/radar",
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public ResponseEntity<String> getPoints(@RequestParam(value = "name", defaultValue = "World") String name) {
-        // LOGGER.info(String.format("%s", greetings.toString()));
-        return new ResponseEntity<String>("{\"x\":0,\"y\":40}", HttpStatus.OK);
-    }
-
-
-    @RequestMapping(
             method = RequestMethod.POST,
             value = "/radar",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
