@@ -1,16 +1,25 @@
 package org.amm.seedtag.model.message;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
 
 public class Coordinates {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Coordinates.class);
+
     private int x;
     private int y;
 
-    public Coordinates(){}
+    public Coordinates(){
+        LOGGER.debug("new Coordinates...");
+    }
 
     public Coordinates(int x, int y){
         this.x = x;
         this.y = y;
+        LOGGER.debug("new Coordinates... %s", toString());
     }
 
     public int getX() {

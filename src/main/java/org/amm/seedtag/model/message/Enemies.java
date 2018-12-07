@@ -1,14 +1,23 @@
 package org.amm.seedtag.model.message;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Enemies {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Enemies.class);
+
     private int number;
     private String type;
 
-    public Enemies(){}
+    public Enemies(){
+        LOGGER.debug("new Enemies...");
+    }
 
     public Enemies(int number, String type) {
         this.number = number;
         this.type = type;
+        LOGGER.debug("new Enemies... %s", toString());
     }
 
     public int getNumber() {
