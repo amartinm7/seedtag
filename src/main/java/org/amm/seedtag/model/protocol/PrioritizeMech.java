@@ -15,7 +15,7 @@ public class PrioritizeMech implements Protocol{
 
     public List<Coordinates> execute(Scan[] scans){
         List<Scan> scanList = Arrays.asList(scans);
-        return scanList.stream().sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
+        return scanList.stream().filter(scan -> Protocol.getDistance(scan.getCoordinates()) < 100).sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
     }
 
     // prioritize-mech : Debe de atacarse un mech si se encuentra. En caso negativo, cualquier otro tipo de objetivo será válido.

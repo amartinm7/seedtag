@@ -16,7 +16,7 @@ public class AvoidMech implements Protocol {
 
     public List<Coordinates> execute(Scan[] scans){
         List<Scan> scanList = Arrays.asList(scans);
-        return scanList.stream().filter(scan -> !scan.getEnemies().getType().equals(TYPE_MECH) ).sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
+        return scanList.stream().filter(scan -> !scan.getEnemies().getType().equals(TYPE_MECH) && Protocol.getDistance(scan.getCoordinates()) < 100 ).sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
     }
 
     // avoid-crossfire : No debe de atacarse ningún punto en el que haya algún aliado.

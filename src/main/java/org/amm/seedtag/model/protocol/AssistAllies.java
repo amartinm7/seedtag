@@ -13,7 +13,7 @@ public class AssistAllies implements Protocol {
 
     public List<Coordinates> execute(Scan[] scans){
         List<Scan> scanList = Arrays.asList(scans);
-        return scanList.stream().sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
+        return scanList.stream().filter(scan -> Protocol.getDistance(scan.getCoordinates()) < 100).sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
     }
 
     // assist-allies : Deberan de priorizarse los puntos en los que exista algún aliado.
