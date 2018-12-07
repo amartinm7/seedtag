@@ -1,7 +1,7 @@
 ![springboot](https://www.seedtag.com/assets/common/icons/logo-inverse.svg)
 
 # Seedtag
-Bootstrap application for testing a rest API
+Bootstrap application for testing a rest API, Codetest 2
 
 ## run springboot app
 ```
