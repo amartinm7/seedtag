@@ -32,7 +32,7 @@ public class FurthestEnemiesTest {
     }
 
     @Test
-    public void test7(){
+    public void realTest7(){
         final String provided = "{\"protocols\":[\"furthest-enemies\"]," +
                 "\"scans\":[{\"enemies\":{\"number\":10,\"type\":\"soldier\"},\"coordinates\":{\"y\":35,\"x\":5}}," +
                 "{\"enemies\":{\"number\":20,\"type\":\"soldier\"},\"coordinates\":{\"y\":30,\"x\":10}}]}";
@@ -46,14 +46,14 @@ public class FurthestEnemiesTest {
         Scan[] scanList = new Scan[]{scan1, scan2};
         List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(scanList);
         assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
-        assertEquals(c2, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        assertEquals(c1, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
     }
 
 
 
     @Test
-    public void zeroEnemiesForAllGetTheFurthest(){
+    public void zeroEnemiesGetTheFurthest(){
         Coordinates c1 = new Coordinates(5,5);
         Coordinates c2 = new Coordinates(20,20);
         Coordinates c3 = new Coordinates(1,1);
@@ -65,8 +65,9 @@ public class FurthestEnemiesTest {
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
         List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(scanList);
-        assertEquals(c2, obtainedCoordinates);
-        LOGGER.info(scanList.toString());
+        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
+        assertEquals(c2, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
     }
 
     @Test
@@ -82,8 +83,9 @@ public class FurthestEnemiesTest {
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
         List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(scanList);
-        assertEquals(c2, obtainedCoordinates);
-        LOGGER.info(scanList.toString());
+        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
+        assertEquals(c2, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
     }
 
     @Test
@@ -99,8 +101,9 @@ public class FurthestEnemiesTest {
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
         List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(scanList);
-        assertEquals(c1, obtainedCoordinates);
-        LOGGER.info(scanList.toString());
+        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
+        assertEquals(c1, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
     }
     @Test
     public void zeroEnemiesForTheNearest(){
@@ -115,7 +118,8 @@ public class FurthestEnemiesTest {
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
         List<Coordinates> obtainedCoordinates = new FurthestEnemies().execute(scanList);
-        assertEquals(c2, obtainedCoordinates);
-        LOGGER.info(scanList.toString());
+        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
+        assertEquals(c2, obtainedCoordinates.get(0));
+        LOGGER.info(obtainedCoordinates.toString());
     }
 }
