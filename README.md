@@ -74,6 +74,8 @@ preferences | editor | general | auto imports
 marks the checks with 'unambiguos' labels 
 
 # spring guides
+
+http://spring.io/guides
 https://spring.io/guides/gs/gradle/
 https://spring.io/guides/gs/actuator-service/
 
