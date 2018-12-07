@@ -59,6 +59,12 @@ ps -aux | grep "radar-rest-service-0.1.0.jar"
 kill -9 $(jps | grep -i "radar-rest-service-0.1.0.jar" | awk '{print $1}')
 ```
 
+## closing ports
+```
+sudo lsof -i :8888
+sudo kill -9 PID
+```
+
 ## installing spring cli
 https://docs.spring.io/spring-boot/docs/2.0.5.RELEASE/reference/htmlsingle/#getting-started-installing-the-cli
 ```
