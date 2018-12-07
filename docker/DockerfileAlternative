@@ -1,0 +1,14 @@
+FROM openjdk:8-jdk-alpine
+
+MAINTAINER Antonio Martin
+
+EXPOSE 8888
+
+ENV APPLICATION_NAME greetings
+ENV JAVA_OPTS -Xmx512m
+
+COPY *.jar /usr/local/radar/
+
+WORKDIR /usr/local/radar
+
+ENTRYPOINT java -jar *.jar
