@@ -1,8 +1,5 @@
 package org.amm.seedtag.model.message;
 
-import java.awt.geom.Point2D;
-import java.util.Comparator;
-
 public class Scan {
 
     private Coordinates coordinates;
@@ -47,19 +44,5 @@ public class Scan {
                 ", enemies=" + enemies +
                 ", allies=" + allies +
                 '}';
-    }
-
-    public static class ScanComparator implements Comparator<Scan> {
-
-        @Override
-        public int compare(Scan o1, Scan o2) {
-            final Point2D finalP = new Point2D.Double(0, 0);
-            final Point2D point1 = new Point2D.Double(o1.coordinates.getX(), o1.coordinates.getY());
-            final Point2D point2 = new Point2D.Double(o2.coordinates.getX(), o2.coordinates.getY());
-            double ds0 = point1.distanceSq(finalP);
-            double ds1 = point2.distanceSq(finalP);
-            return Double.compare(ds0, ds1);
-        }
-
     }
 }

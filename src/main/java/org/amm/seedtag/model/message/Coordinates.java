@@ -1,7 +1,5 @@
 package org.amm.seedtag.model.message;
 
-import java.awt.geom.Point2D;
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Coordinates {
@@ -53,17 +51,4 @@ public class Coordinates {
         return Objects.hash(getX(), getY());
     }
 
-    public static class CoordinatesComparator implements Comparator<Coordinates> {
-
-        @Override
-        public int compare(Coordinates o1, Coordinates o2) {
-            final Point2D finalP = new Point2D.Double(0, 0);
-            final Point2D point1 = new Point2D.Double(o1.getX(), o1.getY());
-            final Point2D point2 = new Point2D.Double(o2.getX(), o2.getY());
-            double ds0 = point1.distanceSq(finalP);
-            double ds1 = point2.distanceSq(finalP);
-            return Double.compare(ds0, ds1);
-        }
-
-    }
 }
