@@ -1,13 +1,16 @@
 package org.amm.seedtag.model.message;
 
 import org.amm.seedtag.model.protocol.Factory;
+import org.amm.seedtag.model.protocol.FurthestEnemies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class RequestMessage {
 
-    // {"protocols":["avoid-mech"],
-    // "scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestMessage.class);
 
     private String[] protocols;
     private Scan[] scans;
@@ -29,8 +32,19 @@ public class RequestMessage {
     }
 
     public Coordinates nextCoordinates(){
-        //Object o = Arrays.stream(protocols).map(protocol -> Factory.getInstance().getProtocol(protocol).execute(scans));
-        return Factory.getInstance().getProtocol(protocols[0]).execute(scans).get(0);
+        final String lastScansKey = "lastScans";
+        final Map<String, Scan[]> mappedScans = new HashMap<>();
+        mappedScans.put(lastScansKey, scans);
+        Arrays.stream(protocols).forEach(protocol -> {
+            Scan[] nextScans = Factory.getInstance().getProtocol(protocol).process(mappedScans.get(lastScansKey));
+            mappedScans.put(lastScansKey,nextScans);
+        });
+        return mappedScans.get(lastScansKey)[0].getCoordinates();
+/*        final List<Coordinates> coordinates = Arrays.stream(protocols)
+                .map(protocol -> Factory.getInstance().getProtocol(protocol).execute(scans))
+                .reduce(new ArrayList<>(), (l1, l2) -> {
+                    l1.addAll(l2);
+                    return l1;});*/
     }
 
     @Override
