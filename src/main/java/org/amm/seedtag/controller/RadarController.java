@@ -27,8 +27,8 @@ public class RadarController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<String> health(@RequestParam(value = "name", defaultValue = "World") String name) {
-        LOGGER.info(String.format("%s", "Hello!"));
-        return new ResponseEntity<String>("Hello!", HttpStatus.OK);
+        LOGGER.info(String.format("%s", "health: service up!"));
+        return new ResponseEntity<String>("health: service up!", HttpStatus.OK);
     }
 
     @RequestMapping(

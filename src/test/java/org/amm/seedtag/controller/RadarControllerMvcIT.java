@@ -35,8 +35,8 @@ public class RadarControllerMvcIT {
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
-        final String expected = "{\"x\":0,\"y\":40}";
-        this.mockMvc.perform(get("/radar")).andDo(print()).andExpect(status().isOk())
+        final String expected = "health: service up!";
+        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString(expected)));
     }
 
