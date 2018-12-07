@@ -23,9 +23,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class RadarControllerMvcIT {
+public class RadarControllerIT {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RadarControllerMvcIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RadarControllerIT.class);
 
     @Autowired
     private MockMvc mockMvc;
