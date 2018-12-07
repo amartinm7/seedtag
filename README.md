@@ -26,13 +26,13 @@ docker rm $(docker ps -a -q)
 ```
 
 ## options greetings to know which methods are enabled in the greetings path or resource
-curl -X OPTIONS -i "http://localhost:8080/radar" -H "Content-type: application/json" -H "Accept: application/json"
+curl -X OPTIONS -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json"
 
 ## get greetings
-curl -X GET -i "http://localhost:8080/radar" -H "Content-type: application/json" -H "Accept: application/json"
+curl -X GET -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json"
 
 ## post greetings
-curl -X POST -i "http://localhost:8080/radar" -H "Content-type: application/json" -H "Accept: application/json" -d '{"protocols":["avoid-mech"],"scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}'
+curl -X POST -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json" -d '{"protocols":["avoid-mech"],"scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}'
 
 ## References
 https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-webflux
