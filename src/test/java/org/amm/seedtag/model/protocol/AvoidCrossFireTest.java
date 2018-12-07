@@ -33,10 +33,10 @@ public class AvoidCrossFireTest {
         Scan scan1 = new Scan(c1,e1,3);
         Scan scan2 = new Scan(c2,e2,0);
         Scan[] scanList = new Scan[]{scan1, scan2};
-        List<Coordinates> obtainedCoordinates = new AvoidCrossfire().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 1);
-        assertEquals(c2, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidCrossfire().process(scanList);
+        assertTrue(obtainedScanList.length == 1);
+        assertEquals(c2, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -51,10 +51,10 @@ public class AvoidCrossFireTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new AvoidCrossfire().execute(scanList);
-        assertEquals(3, obtainedCoordinates.size());
-        assertEquals(c3, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidCrossfire().process(scanList);
+        assertTrue(obtainedScanList.length == 3);
+        assertEquals(c3, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -69,8 +69,8 @@ public class AvoidCrossFireTest {
         Scan scan2 = new Scan(c2,e2,1);
         Scan scan3 = new Scan(c3,e3,1);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new AvoidCrossfire().execute(scanList);
-        assertEquals(0, obtainedCoordinates.size());
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidCrossfire().process(scanList);
+        assertTrue(obtainedScanList.length == 0);
+        LOGGER.info(obtainedScanList.toString());
     }
 }

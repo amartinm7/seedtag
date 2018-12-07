@@ -25,7 +25,7 @@ public class AvoidMechTest {
     }
 
     @Test
-    public void oneAllieGetTheRest(){
+    public void noMechs(){
         Coordinates c1 = new Coordinates(35,5);
         Coordinates c2 = new Coordinates(5,35);
         Enemies e1 = new Enemies(10,"soldier");
@@ -33,14 +33,13 @@ public class AvoidMechTest {
         Scan scan1 = new Scan(c1,e1,3);
         Scan scan2 = new Scan(c2,e2,0);
         Scan[] scanList = new Scan[]{scan1, scan2};
-        List<Coordinates> obtainedCoordinates = new AvoidMech().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 1);
-        assertEquals(c2, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidMech().process(scanList);
+        assertTrue("two scans has to be obtained", obtainedScanList.length == 2);
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
-    public void zeroAlliesForAllGetTheNearest(){
+    public void filterOneMech(){
         Coordinates c1 = new Coordinates(5,5);
         Coordinates c2 = new Coordinates(20,20);
         Coordinates c3 = new Coordinates(1,1);
@@ -51,26 +50,25 @@ public class AvoidMechTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new AvoidMech().execute(scanList);
-        assertEquals(3, obtainedCoordinates.size());
-        assertEquals(c3, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidMech().process(scanList);
+        assertTrue("two scans has to be obtained", obtainedScanList.length == 2);
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
-    public void allAlliesReturnEmpty(){
+    public void filterAllMechs(){
         Coordinates c1 = new Coordinates(5,5);
         Coordinates c2 = new Coordinates(20,20);
         Coordinates c3 = new Coordinates(1,1);
-        Enemies e1 = new Enemies(5,"soldier");
+        Enemies e1 = new Enemies(5,"mech");
         Enemies e2 = new Enemies(20,"mech");
-        Enemies e3 = new Enemies(1,"soldier");
+        Enemies e3 = new Enemies(1,"mech");
         Scan scan1 = new Scan(c1,e1,1);
         Scan scan2 = new Scan(c2,e2,1);
         Scan scan3 = new Scan(c3,e3,1);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new AvoidMech().execute(scanList);
-        assertEquals(0, obtainedCoordinates.size());
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AvoidMech().process(scanList);
+        assertTrue(obtainedScanList.length == 0);
+        LOGGER.info(obtainedScanList.toString());
     }
 }

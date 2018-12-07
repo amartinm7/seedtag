@@ -8,8 +8,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -36,12 +34,12 @@ public class PrioritizeMechTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new PrioritizeMech().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 3);
-        assertEquals(c2, obtainedCoordinates.get(0));
-        assertEquals(c3, obtainedCoordinates.get(1));
-        assertEquals(c1, obtainedCoordinates.get(2));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedCoordinates = new PrioritizeMech().process(scanList);
+        assertTrue(obtainedCoordinates.length == 3);
+        assertEquals(c2, obtainedCoordinates[0].getCoordinates());
+        assertEquals(c3, obtainedCoordinates[1].getCoordinates());
+        assertEquals(c1, obtainedCoordinates[2].getCoordinates());
+        LOGGER.info(obtainedCoordinates.toString());
     }
 
     @Test
@@ -56,12 +54,12 @@ public class PrioritizeMechTest {
         Scan scan2 = new Scan(c2,e2,1);
         Scan scan3 = new Scan(c3,e3,1);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new PrioritizeMech().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 3);
-        assertEquals(c1, obtainedCoordinates.get(0));
-        assertEquals(c2, obtainedCoordinates.get(1));
-        assertEquals(c3, obtainedCoordinates.get(2));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedCoordinates = new PrioritizeMech().process(scanList);
+        assertTrue(obtainedCoordinates.length == 3);
+        assertEquals(c1, obtainedCoordinates[0].getCoordinates());
+        assertEquals(c2, obtainedCoordinates[1].getCoordinates());
+        assertEquals(c3, obtainedCoordinates[2].getCoordinates());
+        LOGGER.info(obtainedCoordinates.toString());
     }
 
     @Test
@@ -76,12 +74,12 @@ public class PrioritizeMechTest {
         Scan scan2 = new Scan(c2,e2,1);
         Scan scan3 = new Scan(c3,e3,1);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new PrioritizeMech().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 3);
-        assertEquals(c3, obtainedCoordinates.get(0));
-        assertEquals(c1, obtainedCoordinates.get(1));
-        assertEquals(c2, obtainedCoordinates.get(2));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedCoordinates = new PrioritizeMech().process(scanList);
+        assertTrue(obtainedCoordinates.length == 3);
+        assertEquals(c3, obtainedCoordinates[0].getCoordinates());
+        assertEquals(c1, obtainedCoordinates[1].getCoordinates());
+        assertEquals(c2, obtainedCoordinates[2].getCoordinates());
+        LOGGER.info(obtainedCoordinates.toString());
     }
     @Test
     public void allMechGetTheNearest(){
@@ -95,11 +93,11 @@ public class PrioritizeMechTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new PrioritizeMech().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 3);
-        assertEquals(c3, obtainedCoordinates.get(0));
-        assertEquals(c1, obtainedCoordinates.get(1));
-        assertEquals(c2, obtainedCoordinates.get(2));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedCoordinates = new PrioritizeMech().process(scanList);
+        assertTrue(obtainedCoordinates.length == 3);
+        assertEquals(c3, obtainedCoordinates[0].getCoordinates());
+        assertEquals(c1, obtainedCoordinates[1].getCoordinates());
+        assertEquals(c2, obtainedCoordinates[2].getCoordinates());
+        LOGGER.info(obtainedCoordinates.toString());
     }
 }

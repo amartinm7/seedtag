@@ -27,10 +27,10 @@ public class ClosestEnemiesTest {
         final Coordinates expected = new Coordinates(3,10);
         final ObjectMapper objectMapper = new ObjectMapper();
         final RequestMessage request =  objectMapper.readValue(provided, RequestMessage.class);
-        List<Coordinates> obtainedCoordinates = new ClosestEnemies().execute(request.getScans());
-        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
-        assertEquals(expected, obtainedCoordinates.get(0));
-        LOGGER.info(obtainedCoordinates.toString());
+        Scan[] obtainedScanList = new ClosestEnemies().process(request.getScans());
+        assertTrue(obtainedScanList.length > 0);
+        assertEquals(expected, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -45,10 +45,10 @@ public class ClosestEnemiesTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new ClosestEnemies().execute(scanList);
-        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
-        assertEquals(c3, obtainedCoordinates.get(0));
-        LOGGER.info(obtainedCoordinates.toString());
+        Scan[] obtainedScanList = new ClosestEnemies().process(scanList);
+        assertTrue(obtainedScanList.length > 0);
+        assertEquals(c3, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -63,10 +63,10 @@ public class ClosestEnemiesTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new ClosestEnemies().execute(scanList);
-        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
-        assertEquals(c2, obtainedCoordinates.get(0));
-        LOGGER.info(obtainedCoordinates.toString());
+        Scan[] obtainedScanList = new ClosestEnemies().process(scanList);
+        assertTrue(obtainedScanList.length > 0);
+        assertEquals(c2, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -81,10 +81,10 @@ public class ClosestEnemiesTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new ClosestEnemies().execute(scanList);
-        assertTrue("no returned coordinates", obtainedCoordinates.size() > 0 );
-        assertEquals(c2, obtainedCoordinates.get(0));
-        LOGGER.info(obtainedCoordinates.toString());
+        Scan[] obtainedScanList = new ClosestEnemies().process(scanList);
+        assertTrue(obtainedScanList.length > 0);
+        assertEquals(c2, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
 }

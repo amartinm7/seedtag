@@ -35,10 +35,10 @@ public class AssistAlliesTest {
         Scan scan1 = new Scan(c1,e1,3);
         Scan scan2 = new Scan(c2,e2,0);
         Scan[] scanList = new Scan[]{scan1, scan2};
-        List<Coordinates> obtainedCoordinates = new AssistAllies().execute(scanList);
-        assertTrue(obtainedCoordinates.size() == 2);
-        assertEquals(c1, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AssistAllies().process(scanList);
+        assertTrue(obtainedScanList.length == 2);
+        assertEquals(c1, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -53,10 +53,10 @@ public class AssistAlliesTest {
         Scan scan2 = new Scan(c2,e2,0);
         Scan scan3 = new Scan(c3,e3,0);
         Scan[] scanList = new Scan[]{scan1, scan2, scan3};
-        List<Coordinates> obtainedCoordinates = new AssistAllies().execute(scanList);
-        assertEquals(3, obtainedCoordinates.size());
-        assertEquals(c3, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AssistAllies().process(scanList);
+        assertTrue(obtainedScanList.length == 3);
+        assertEquals(c3, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
 
     @Test
@@ -71,9 +71,10 @@ public class AssistAlliesTest {
         Scan scan2 = new Scan(c2,e2,1);
         Scan scan3 = new Scan(c3,e3,1);
         Scan[] scanList = new Scan[]{scan1, scan3, scan2};
-        List<Coordinates> obtainedCoordinates = new AssistAllies().execute(scanList);
-        assertEquals(3, obtainedCoordinates.size());
-        assertEquals(c3, obtainedCoordinates.get(0));
-        LOGGER.info(scanList.toString());
+        Scan[] obtainedScanList = new AssistAllies().process(scanList);
+        assertTrue(obtainedScanList.length == 3);
+        assertEquals(c3, obtainedScanList[0].getCoordinates());
+        LOGGER.info(obtainedScanList.toString());
     }
+
 }
