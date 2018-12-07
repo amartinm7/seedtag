@@ -3,10 +3,6 @@
 # Seedtag
 Bootstrap application for testing a rest API
 
-## create a new spring project from the scratch
-First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
-https://start.spring.io/
-
 ## run springboot app
 ```
 gradle wrapper
@@ -43,6 +39,10 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reacti
 http://cloud.spring.io/spring-cloud-static/Finchley.SR1/single/spring-cloud.html
 https://docs.spring.io/spring-security/site/docs/4.0.x/reference/htmlsingle/#csrf-configure
 
+## create a new spring project from the scratch
+First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
+https://start.spring.io/
+
 ## actuator spring plugin for health check, status and stop service
 ```
 curl localhost:8080/actuator/health
@@ -50,6 +50,7 @@ curl localhost:8080/actuator/info
 curl localhost:8080/actuator/shutdown
 ```
 
+# TIPS
 
 ## killing processes
 
