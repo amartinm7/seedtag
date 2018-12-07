@@ -12,24 +12,21 @@ gradle wrapper
 
 or run fat jar
 ```
-java -jar build/libs/greetings-rest-service-0.1.0.jar
+java -jar build/libs/radar-rest-service-0.1.0.jar
 ```
 
 ## Dockerize the app: create a docker image and run the project from command line
 From the project root folder exec the commands to create a docker image and run it:
 
 ```bash
-docker build -f docker/Dockerfile . -t greetings
-docker run -p 8888:8888 greetings
+docker build -f docker/Dockerfile . -t radar
+docker run -p 8888:8888 radar
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
 
-## options greetings to know which methods are enabled in the greetings path or resource
-curl -X OPTIONS -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json"
-
-## get greetings
-curl -X GET -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json"
+## get health
+curl -X GET -i "http://localhost:8888" -H "Content-type: application/json" -H "Accept: application/json"
 
 ## post greetings
 curl -X POST -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json" -d '{"protocols":["avoid-mech"],"scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}'
