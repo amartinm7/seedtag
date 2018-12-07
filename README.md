@@ -28,13 +28,8 @@ docker rm $(docker ps -a -q)
 ## get health
 curl -X GET -i "http://localhost:8888" -H "Content-type: application/json" -H "Accept: application/json"
 
-## post greetings
+## post radar
 curl -X POST -i "http://localhost:8888/radar" -H "Content-type: application/json" -H "Accept: application/json" -d '{"protocols":["avoid-mech"],"scans":[{"coordinates":{"x":0,"y":40},"enemies":{"type":"soldier","number":10}}]}'
-
-## References
-https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-webflux
-http://cloud.spring.io/spring-cloud-static/Finchley.SR1/single/spring-cloud.html
-https://docs.spring.io/spring-security/site/docs/4.0.x/reference/htmlsingle/#csrf-configure
 
 ## create a new spring project from the scratch
 First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
