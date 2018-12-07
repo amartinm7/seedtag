@@ -75,9 +75,9 @@ marks the checks with 'unambiguos' labels
 
 # spring guides
 
-http://spring.io/guides
-https://spring.io/guides/gs/gradle/
-https://spring.io/guides/gs/actuator-service/
+- http://spring.io/guides
+- https://spring.io/guides/gs/gradle/
+- https://spring.io/guides/gs/actuator-service/
 
 ## create a new spring project from the scratch
 First of all, you can generate the scaffolding of this project using the INITIALIZR tool: 
