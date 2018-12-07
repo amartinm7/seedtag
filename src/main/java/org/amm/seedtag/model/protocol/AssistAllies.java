@@ -1,12 +1,10 @@
 package org.amm.seedtag.model.protocol;
 
-import org.amm.seedtag.model.message.Coordinates;
 import org.amm.seedtag.model.message.Scan;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 // assist-allies : Deberan de priorizarse los puntos en los que exista algún aliado.
 public class AssistAllies implements Protocol {
@@ -14,11 +12,6 @@ public class AssistAllies implements Protocol {
     public Scan[] process (Scan[] scans){
         List<Scan> scanList = Arrays.asList(scans);
         return scanList.stream().filter(scan -> Protocol.getDistance(scan.getCoordinates()) < 100).sorted(new ScanComparator()).toArray(Scan[]::new);
-    }
-
-    public List<Coordinates> execute(Scan[] scans){
-        List<Scan> scanList = Arrays.asList(scans);
-        return scanList.stream().filter(scan -> Protocol.getDistance(scan.getCoordinates()) < 100).sorted(new ScanComparator()).map(scan -> scan.getCoordinates()).collect(Collectors.toList());
     }
 
     public static class ScanComparator implements Comparator<Scan> {

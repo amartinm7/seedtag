@@ -4,13 +4,10 @@ import org.amm.seedtag.model.message.Coordinates;
 import org.amm.seedtag.model.message.Scan;
 
 import java.awt.geom.Point2D;
-import java.util.List;
 
 public interface Protocol {
 
     public Scan[] process (Scan[] scans);
-
-    public List<Coordinates> execute (Scan[] scans);
 
     public static double getDistance (Coordinates coordinates) {
         final Point2D finalP = new Point2D.Double(0, 0);
