@@ -19,7 +19,7 @@ public class FactoryTest {
     @Test
     public void createClosestEnemies() throws Exception {
         final Class<ClosestEnemies> expected = ClosestEnemies.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("closest-enemies");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.CLOSEST_ENEMIES);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
@@ -27,7 +27,7 @@ public class FactoryTest {
     @Test
     public void createFuthestEnemies() throws Exception {
         final Class<FurthestEnemies> expected = FurthestEnemies.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("furthest-enemies");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.FURTHEST_ENEMIES);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
@@ -35,7 +35,7 @@ public class FactoryTest {
     @Test
     public void createAssistAllies() throws Exception {
         final Class<AssistAllies> expected = AssistAllies.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("assist-allies");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.ASSIST_ALLIES);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
@@ -43,7 +43,7 @@ public class FactoryTest {
     @Test
     public void createAvoidCrossfire() throws Exception {
         final Class<AvoidCrossfire> expected = AvoidCrossfire.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("avoid-crossfire");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.AVOID_CROSSFIRE);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
@@ -51,7 +51,7 @@ public class FactoryTest {
     @Test
     public void createPrioritizeMech() throws Exception {
         final Class<PrioritizeMech> expected = PrioritizeMech.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("prioritize-mech");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.PRIORITIZE_MECH);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
@@ -59,7 +59,7 @@ public class FactoryTest {
     @Test
     public void createAvoidMech() throws Exception {
         final Class<AvoidMech> expected = AvoidMech.class;
-        final Protocol protocol = Factory.getInstance().getProtocol("avoid-mech");
+        final Protocol protocol = Factory.getInstance().getProtocol(Factory.Key.AVOID_MECH);
         LOGGER.info(protocol.toString());
         assertEquals(protocol.getClass(), expected);
     }
