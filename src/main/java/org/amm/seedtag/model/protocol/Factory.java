@@ -15,12 +15,12 @@ public class Factory {
     private static Factory instance = new Factory();
 
     private Factory(){
-        map.put("closest-enemies", org.amm.seedtag.model.protocol.ClosestEnemies.class);
-        map.put("furthest-enemies", FurthestEnemies.class);
-        map.put("assist-allies", org.amm.seedtag.model.protocol.AssistAllies.class);
-        map.put("avoid-crossfire", org.amm.seedtag.model.protocol.AvoidCrossfire.class);
-        map.put("prioritize-mech", org.amm.seedtag.model.protocol.PrioritizeMech.class);
-        map.put("avoid-mech", org.amm.seedtag.model.protocol.AvoidMech.class);
+        map.put(Key.CLOSEST_ENEMIES, org.amm.seedtag.model.protocol.ClosestEnemies.class);
+        map.put(Key.FURTHEST_ENEMIES, FurthestEnemies.class);
+        map.put(Key.ASSIST_ALLIES, org.amm.seedtag.model.protocol.AssistAllies.class);
+        map.put(Key.AVOID_CROSSFIRE, org.amm.seedtag.model.protocol.AvoidCrossfire.class);
+        map.put(Key.PRIORITIZE_MECH, org.amm.seedtag.model.protocol.PrioritizeMech.class);
+        map.put(Key.AVOID_MECH, org.amm.seedtag.model.protocol.AvoidMech.class);
     }
 
     public static Factory getInstance(){
@@ -42,6 +42,14 @@ public class Factory {
             throw new RuntimeException(String.format("Internal Error, invalid mapped classes %s", e.getMessage()));
         }
 
+    }
 
+    public static class Key{
+        public static final String CLOSEST_ENEMIES = "closest-enemies";
+        public static final String FURTHEST_ENEMIES ="furthest-enemies";
+        public static final String ASSIST_ALLIES = "assist-allies";
+        public static final String AVOID_CROSSFIRE = "avoid-crossfire";
+        public static final String PRIORITIZE_MECH = "prioritize-mech";
+        public static final String AVOID_MECH = "avoid-mech";
     }
 }
