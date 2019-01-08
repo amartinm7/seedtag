@@ -13,13 +13,14 @@ public class Coordinates {
     private int y;
 
     public Coordinates(){
-        LOGGER.debug("new Coordinates...");
+        LOGGER.debug("Default new Coordinates...");
     }
 
     public Coordinates(int x, int y){
+        super();
         this.x = x;
         this.y = y;
-        LOGGER.debug("new Coordinates... %s", toString());
+        LOGGER.debug("new {}", toString());
     }
 
     public int getX() {
