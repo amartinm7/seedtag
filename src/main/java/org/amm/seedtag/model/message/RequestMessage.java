@@ -1,6 +1,7 @@
 package org.amm.seedtag.model.message;
 
 import org.amm.seedtag.model.protocol.Factory;
+import org.amm.seedtag.model.protocol.Protocol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,16 +30,23 @@ public class RequestMessage {
         this.scans = scans;
     }
 
-    public Coordinates nextCoordinates(){
+    public Coordinates nextCoordinates() {
         LOGGER.info("getting nextCoordinates...");
-        final String lastScansKey = "lastScans";
-        final Map<String, Scan[]> mappedScans = new HashMap<>();
-        mappedScans.put(lastScansKey, scans);
-        Arrays.stream(getProtocols()).forEach(protocol -> {
-            Scan[] nextScans = Factory.getInstance().getProtocol(protocol).process(mappedScans.get(lastScansKey));
-            mappedScans.put(lastScansKey,nextScans);
-        });
-        return mappedScans.get(lastScansKey)[0].getCoordinates();
+        final Scan[] lastScans = nextCoordinates(scans, Arrays.asList(protocols).iterator());
+        return lastScans[0].getCoordinates();
+
+    }
+
+    public Scan[] nextCoordinates (Scan[] scans, Iterator<String> protocols) {
+        if(protocols.hasNext()){
+            final String protocolName = protocols.next();
+            LOGGER.info("applying protocol {}...",protocolName);
+            final Protocol protocol = Factory.getInstance().getProtocol(protocolName);
+            final Scan[] nextScan = protocol.process(scans);
+            return nextCoordinates (nextScan, protocols);
+        } else {
+            return scans;
+        }
     }
 
     @Override
