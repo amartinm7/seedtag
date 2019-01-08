@@ -25,8 +25,8 @@ killall Docker && open /Applications/Docker.app
 
 then execute the next commands in order to create the docker image and run it:
 ```bash
-docker build -f docker/Dockerfile . -t parceltracker
-docker run -p 8085:8085 parceltracker
+docker build -f docker/Dockerfile . -t radar
+docker run -p 8888:8888 radar
 ```
 
 to stop the application first we have to stop the docker process and then kill the docker process:
