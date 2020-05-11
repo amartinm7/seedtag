@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/amartinm7/seedtag?branch=master)](https://bettercodehub.com/)
+
 ![springboot](https://www.seedtag.com/assets/common/icons/logo-inverse.svg)
 
 # Seedtag Codetest 2: Backend Engineer
